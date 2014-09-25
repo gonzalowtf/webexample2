@@ -11,7 +11,7 @@ app.configure(function () {
   app.use(express.methodOverride());
   app.use(app.router); 
 });
-
+app.use('/emergente', express.static(__dirname + '/emergente/emergente'));
 
 app.get('/', function(req, res) {
   res.sendfile(__dirname + '/index.html');

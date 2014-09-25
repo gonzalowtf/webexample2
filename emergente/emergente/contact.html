@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebExample-info</title>
+    <meta http-equiv ="web store example">
+    <meta http-equiv ="Content-Type" content ="text/html";>
+
+	<script src ="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+ 
+    <!-- importando angular js -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src = "/emergente/bootbox.min.js"></script>
+
+
+    <style>
+    @font-face{
+    font-family: "dustwest";
+    src: url(dustwest.ttf) format("truetype");
+    }
+    
+     #header{
+      
+      float:left;
+      font-family: "dustwest";
+      font-size: 200px;
+      width:300px;
+      height: 75px;
+      
+     }
+     #active{
+
+        position: absolute;
+        top:  160px; 
+        left: 0px;
+            float: left;
+            width: 300px;
+            height: 500px;
+            
+
+
+     }
+     .content{
+         
+         float: right; 
+         width: 75%;
+         height: 100%;
+         
+
+     }
+     .par{
+        font-size: large;
+        font:lighter;
+
+
+     }
+     .well{ 
+      position:relative; 
+      margin:0 auto; 
+      width:960px; 
+    } 
+      #footer { 
+     
+      text-align: center;
+      width:100%;
+      float:right; 
+      background-color: black;
+      
+    }
+
+
+    </style>
+    </head>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Home</a>
+    </div>    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/emergente/contact.html">Contact Us</a></li>
+        <li><a href="#">Register</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Chat Room</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search on the go...">
+        </div>
+        <button type="submit" class="btn btn-default">Go !</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Google +</a></li>
+            <li class="divider"></li>
+            <li><a href="#">With The Programmer</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+   </div> 
+
+</nav>
+<div id = "header">
+  <h1>The Info Center<small>..about us..</small></h1>
+</div>
+<div id = "active">
+<ul class="nav nav-pills nav-stacked">
+  <li class="active">
+    <a href="contact.html">
+      <span class="badge pull-right">2</span>
+      Blog
+    </a>
+  </li>
+  <li >
+    <a href="history.html">
+      <span class="badge pull-right">none</span>
+      History
+    </a>
+  </li>
+  <li >
+    <a href="richard.html">
+      <span class="badge pull-right">none</span>
+      Richard
+    </a>
+  </li>
+  <li >
+    <a href="#">
+      <span class="badge pull-right">none</span>
+      Jordan
+    </a>
+  </li>
+  </ul>
+ </div>
+<div class="content">
+    
+    <div class="jumbotron">
+      <h1>Our Blog</h1><br><br><br><br>
+      <p>here you will provide any information about you, your progress ,the company one , like a real blogging system, posting </p>
+
+</div>
+        
+         <div class="page-header">
+            <h2>The History of the Big Bang<small> &nbsp &nbsp Mon , 22 September 2014  at 18 pm</small></h2>
+        </div>
+        <p class = "par">
+<p class="par">The Big Bang did not occur as an explosion in the usual way one think about such things, despite one might gather from its name. The universe did not expand into space, as space did not exist before the universe. Instead, it is better to think of the Big Bang as the simultaneous appearance of space everywhere in the universe. The universe has not expanded from any one spot since the Big Bang — rather, space itself has been stretching, and carrying matter with it.</p>
+
+<p class="par">Since the universe by its definition encompasses all of space and time as we know it, it is beyond the model of the Big Bang to say what the universe is expanding into or what gave rise to the Big Bang. Although there are models that speculate about these questions, none of them have made realistically testable predictions as of yet.
+</p><br>
+<p class="par">Age</p>
+
+<p class="par">The universe is currently estimated at roughly 13.7 billion years old, give or take 130 million years. In comparison, the solar system is only about 4.6 billion years old.
+
+This estimate came from measuring the composition of matter and energy density in the universe. This allowed researchers to compute how fast the universe expanded in the past.  With that knowledge, they could turn the clock back and extrapolate when the Big Bang happened. The time between then and now is the age of the universe.</p>
+<img src="big-bang.jpg" >
+<br>
+<p class="par">Structure</p>
+
+<p class="par">Scientists think that in the earliest moments of the universe, there was no structure to it to speak of, with matter and energy distributed nearly uniformly throughout. The gravitational pull of small fluctuations in the density of matter back then gave rise to the vast web-like structure of stars and emptiness seen today. Dense regions pulled in more and more matter through gravity, and the more massive they became, the more matter they could pull in through gravity, forming stars, galaxies and larger structures known as clusters, superclusters, filaments and walls, with "great walls" of thousands of galaxies reaching more than a billion light years in length. Less dense regions did not grow, evolving into area of seemingly empty space called voids.
+       </p>
+       <br><br>
+       <p class="par">Please checkout the following video :</p><br>
+      <object width="900" height="900" date ="https://www.youtube.com/watch?v=VOz4PkdY7aA"></object>
+       <p class="par"></p>
+        </p><br><br><br><hr>
+        <div class="page-header">
+            <h2>Here we go !<small> &nbsp &nbsp Tue, 23 September 2014 at 4 am</small></h2>
+        </div>
+        <p class= "par">
+            On this space you will write your post , providing photos , videos , anything that you want like the newer bellow.
+        </p>
+        <p class="par">The process of posting on this site will be just dedicated to you and your people , so actually we will provide you with a 
+            microsystem for that</p>
+        <hr>
+
+      <ul class="pager">
+             <li class="previous disabled"><a href="#">&larr; Older</a></li>
+             <li class="next"><a href="#">Newer &rarr;</a></li>
+       </ul>
+    </div>
+
+</body>
+<footer><div class="well" id = "footer">Your Blog For Show Everything Up-To-Date</div>
+
+</footer>
+</html>

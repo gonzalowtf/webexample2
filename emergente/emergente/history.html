@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebExample-info</title>
+    <meta http-equiv ="web store example">
+    <meta http-equiv ="Content-Type" content ="text/html";>
+
+	<script src ="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+ 
+    <!-- importando angular js -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script type="text/javascript" src = "/emergente/bootbox.min.js"></script>
+
+
+    <style>
+    @font-face{
+    font-family: "dustwest";
+    src: url(dustwest.ttf) format("truetype");
+    }
+    
+     #header{
+      
+      float:left;
+      font-family: "dustwest";
+      font-size: 200px;
+      width:300px;
+      height: 75px;
+      
+     }
+     #active{
+
+        position: absolute;
+        top:  160px; 
+        left: 0px;
+            float: left;
+            width: 300px;
+            height: 500px;
+            
+
+
+     }
+     .content{
+         
+         float: right; 
+         width: 75%;
+         height: 100%;
+         
+
+     }
+     .par{
+        font-size: large;
+        font:lighter;
+
+
+     }
+     .well{ 
+      position:relative; 
+      margin:0 auto; 
+      width:960px; 
+    } 
+      #footer { 
+     
+      text-align: center;
+      width:100%;
+      float:right; 
+      background-color: black;
+      
+    }
+
+
+    </style>
+    </head>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Home</a>
+    </div>    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/emergente/contact.html">Contact Us</a></li>
+        <li><a href="#">Register</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Chat Room</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search on the go...">
+        </div>
+        <button type="submit" class="btn btn-default">Go !</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Google +</a></li>
+            <li class="divider"></li>
+            <li><a href="#">With The Programmer</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+   </div> 
+
+</nav>
+<div id = "header">
+  <h1>The Info Center<small>..about us..</small></h1>
+</div>
+<div id = "active">
+<ul class="nav nav-pills nav-stacked">
+  <li>
+    <a href="contact.html">
+      <span class="badge pull-right">2</span>
+      Blog
+    </a>
+  </li>
+  <li class = "active" >
+    <a href="history.html">
+      <span class="badge pull-right">none</span>
+      History
+    </a>
+  </li>
+  <li >
+    <a href="richard.html">
+      <span class="badge pull-right">none</span>
+      Richard
+    </a>
+  </li>
+  <li >
+    <a href="#">
+      <span class="badge pull-right">none</span>
+      Jordan
+    </a>
+  </li>
+  </ul>
+ </div>
+<div class="content">
+    
+    <div class="jumbotron">
+      <h1>Our History</h1><br><br><br><br>
+      <p>biography of your business</p>
+
+</div>
+        
+         <div class="page-header">
+            <h2>Let Them Talk<small> &nbsp &nbsp By Hugh Laurie</small></h2>
+        </div>
+        <p class = "par">Is the debut album by English actor and musician Hugh Laurie.
+
+The album, which consists of classic blues songs, was released on 9 May 2011. Some of the songs are collaborations with well-known artists such as Tom Jones, Irma Thomas and Dr. John. Laurie plays piano and guitar on the album in addition to providing lead vocals. Kevin Breit plays guitar and Vincent Henry plays saxophones.The album was produced by Joe Henry and features horn arrangements by Allen Toussaint.</p>
+
+<p class="par">
+
+Laurie premiered some of the songs in a small New Orleans club in March 2011. In the UK, he performed at the Union Chapel in London, at the Cheltenham Jazz Festival, Warwick Arts Centre in Coventry, and at Manchester's Royal Northern College of Music. Laurie also made several television appearances, including BBC2 programmes The Graham Norton Show and Later... with Jools Holland, and was interviewed on BBC Radio 2's Chris Evans Breakfast Show.</p>
+
+<p class="par">
+On 15 May 2011, Laurie appeared in the UK ITV series Perspectives, explaining his love for the music of New Orleans and playing music from the album, at studios and live venues in the city itself.</p>
+<p class="par">
+A special edition of the album, containing three more songs, was released on 15 May 2011. A second blues album, named Didn't It Rain, was released on 6 May 2013.</p>
+       <br><br>
+       
+        <hr>
+ <img src="let.jpg" >       
+<hr>
+<br>
+<p class="par">
+ Also includes documentary segments showing Laurie’s daytime and nocturnal travels around the city on foot, by bike, or car, including a visit to the legendary Euclid Records shop, where he reverently inspects the classic LPs there.</p>
+<p class="par">
+Laurie dubs the city “the most romantic place on earth” and observes that this is “a city that doesn’t fear death. It’s looked death in the eye.” This aspect is reflected in its music, he notes. “Death is the minor key. Life is the major key.”
+</p>
+<p class="par">
+He freely admits he’s following “in the footsteps of Martin Scorsese, Ken Burns, and Spike Lee,” all of whom memorably trod similar cinematic musical paths.
+</p>
+<p class="par">
+Of Laurie’s piano prowess, Jones observes admiringly, “He must have listened to a lot of blues players, a lot of boogie-woogie players,” and notes that Laurie’s playing resembles that of Jerry Lee Lewis. Thomas marvels that when she saw him on the keyboards on House, she “could tell he was actually playing.”
+</p>
+<p class="par">
+With concert sequences filmed at the historic Latrobe’s building in the French Quarter, the musical selections include New Orleans blues standards along with forgotten and neglected gems.
+      </p>
+<img src="let2.jpg" >
+    </div>
+
+</body>
+<footer><div class="well" id = "footer">about your past</div>
+
+</footer>
+</html>
