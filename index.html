@@ -19,13 +19,13 @@
  
     <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script type="text/javascript" src = "/emergente/bootbox.min.js"></script>
+    <script type="text/javascript" src = "emergente/emergente/bootbox.min.js"></script>
 
     <style>
 
     @font-face{
     font-family: "dustwest";
-    src: url(/emergente/dustwest.ttf) format("truetype");
+    src: url(emergente/emergente/dustwest.ttf) format("truetype");
     }
     
     body{
@@ -52,7 +52,10 @@
        font-size: 25px;
 
     }
-
+ 
+   .item{
+    margin : 0 auto;
+   }
   #well{
 
     color : black;
@@ -62,7 +65,7 @@
     </style>
 
 </head>
-<body background = "/emergente/fondon.jpg">
+<body background = "emergente/emergente/fondon.jpg">
   <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -73,17 +76,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html">Home</a>
     </div>    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/emergente/contact.html">Contact Us</a></li>
-        <li><a href="/emergente/register.html">Register</a></li>
+        <li><a href="emergente/emergente/contact.html">Contact Us</a></li>
+        <li><a href="emergente/emergente/register.html">Register</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Chat Room</a></li>
+            <li><a href="emergente/emergente/store.html">Store</a></li>
+            <li><a href="emergente/emergente/chat.html">Chat Room</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
@@ -96,7 +99,7 @@
         <button type="submit" class="btn btn-default">Go !</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log In</a></li>
+        <li onClick="log()"><a href="#">Log In</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -119,17 +122,19 @@
 <div class="sub">
     <i><b>and this is your Gallery...</i></b>
 
-</div>    
+</div><center>    
  <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img src="/emergente/fondo1.jpg" alt="First slide">
+          <img src="emergente/emergente/fo1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Use this space as a shown for your servicies</h1>
@@ -139,7 +144,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="/emergente/fondo2.jpg" alt="Second slide">
+          <img src="emergente/emergente/fo2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
              <h1>Another slide ... for another service</h1>
@@ -149,7 +154,7 @@
           </div>
         </div>
         <div class="item">
-          <img src="/emergente/fondo3.jpg" alt="Third slide">
+          <img src="emergente/emergente/fo3.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Another slide ... for another service</h1>
@@ -158,16 +163,59 @@
             </div>
           </div>
         </div>
+        <div class="item">
+          <img src="emergente/emergente/fondo4.jpg" alt="Fourth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another slide ... for another service</h1>
+              <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action4</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="emergente/emergente/fondo5.jpg" alt="Fifth slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another slide ... for another service</h1>
+              <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action5</a></p>
+            </div>
+          </div>
+        </div>
       </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
+    </div><!-- /.carousel --></center>
 
 </div>
 
 <script>
-  
+String user ="";
+String pas ="";
+/*function log2(result){
+   bootbox.prompt("Password:", function(result2) {                
+  if (result === null) {                                             
+    Example.show("Prompt dismissed");                              
+  } else {
+     Example.show("Welcome ! "+result);                              
 
+            
+  }
+});
+}
+*/
+  
+function log(){
+  bootbox.prompt("Username:", function(result) {                
+  if (result === null) {                                             
+    Example.show("Prompt dismissed");                              
+  } else {
+                Example.show("Hi!"+result);
+            
+  }
+});
+}
   
 </script>    
 </body>

@@ -19,12 +19,12 @@
  
     <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script type="text/javascript" src = "/emergente/bootbox.min.js"></script>
+    <script type="text/javascript" src = "bootbox.min.js"></script>
     <style>
 
     @font-face{
     font-family: "scriptina";
-    src: url(/emergente/SCRIPTIN.ttf) format("truetype");
+    src: url(SCRIPTIN.ttf) format("truetype");
     }
 
     .header{
@@ -33,7 +33,11 @@
       
       text-align: center;
       font-size: 101px;
-
+      
+     	width:50%;
+     	 position: absolute;
+     	 top:  20%; 
+       left: 25%;
     }
   
     .panel-heading{
@@ -44,44 +48,53 @@
      #user{
      	 width:40%;
      	 position: absolute;
-     	 top:  30%; 
+     	 top:  60%; 
          left: 30%;
          
      }
      #password{
      	 width:40%;
      	 position: absolute;
-     	 top:  40%; 
+     	 top:  70%; 
          left: 30%;
      }
       #password2{
        width:40%;
        position: absolute;
-       top:  50%; 
+       top:  80%; 
        left: 30%;
      }
      #email{
      	 width:40%;
      	 position: absolute;
-     	 top:  60%; 
+     	 top:  90%; 
        left: 30%;
      }
     
      #register{
        width:10%;
        position: absolute;
-       top:  76%; 
+       top:  100%; 
        left: 45%;
        padding:0.5%;
      }
-
+     #panel{
+       
+       height:110%;
+     }
+      .container{
+       
+       height:110%;
+     }
+ 
+ 
 
 
 
 
     </style>
 </head>
-<body background = "/emergente/fondon.jpg">
+<body background = "fondon.jpg">
 	<nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -92,17 +105,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html">Home</a>
     </div>    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/emergente/contact.html">Contact Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
         <li class = "active"><a href="register.html">Register</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Chat Room</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="chat.html">Chat Room</a></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
@@ -133,17 +146,17 @@
   </nav>
   <div class="container">
     
-  	<div class="panel panel-primary">
+  	<div class="panel panel-primary" id="panel">
       
    	 <div class="panel-heading">The Register Zone</div>
      <div class="header">
       Join Us
       
     </div><br><br><br>
- 	 <div class="panel-body">
+ 	 <div class="panel-body" id="panel">
     <p></p>
-  </div><br><br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="input-group input-group-lg" id = "user">
   <span class="input-group-addon">@</span>
   <input type="text" class="form-control" placeholder="Give us a Username...">
@@ -160,6 +173,7 @@
   <span class="input-group-addon">E</span>
   <input type="text" class="form-control" placeholder="and a E-mail...">
 </div>
+</div>
 
 <button type="button" class="btn btn-success" id = "register" onClick = "join()">Register now</button>
 
@@ -167,7 +181,7 @@
   <script>
 function join(){
 
-bootbox.alert("You are now a member !");
+bootbox.alert("You are a member now !");
 }
 
   </script>
