@@ -1,4 +1,4 @@
-var Tshirt = require('./models/tshirts');
+var Tshirt = require('emergente/models/tshirts');
 
 // obtiene las camisetas de la base de datos
 

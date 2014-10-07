@@ -32,7 +32,7 @@
     
 
        background-color: black ;
-       color : white;
+       
 
     }
 
@@ -42,6 +42,7 @@
        text-align: center;
        font-family: dustwest;
        font-size: 100px;
+       color :white;
 
 
     }
@@ -50,6 +51,7 @@
        text-align: center;
        font-family: italic;
        font-size: 25px;
+       color:white;
 
     }
  
@@ -99,15 +101,15 @@
         <button type="submit" class="btn btn-default">Go !</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li onClick="log()"><a href="#">Log In</a></li>
+        <li ><a href="#" onClick="logear()">Log In <link onClick="logear()" /></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Google +</a></li>
+            <li><a href="#" onClick="facebook()">Facebook</a></li>
+            <li><a href="#" onClick="twitter()">Twitter</a></li>
+            <li><a href="#" onClick="google()">Google +</a></li>
             <li class="divider"></li>
-            <li><a href="#">With The Programmer</a></li>
+            <li><a href="#" onClick="prog()">With The Programmer</a></li>
           </ul>
         </li>
       </ul>
@@ -139,7 +141,7 @@
             <div class="carousel-caption">
               <h1>Use this space as a shown for your servicies</h1>
               <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action1</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" onClick ="show()">Action1</a></p>
             </div>
           </div>
         </div>
@@ -149,7 +151,7 @@
             <div class="carousel-caption">
              <h1>Another slide ... for another service</h1>
               <p>Write information about it here , don t care how long is it , the picture bellow is an scren shot of your product </p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action2</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" onClick = "show()">Action2</a></p>
             </div>
           </div>
         </div>
@@ -159,7 +161,7 @@
             <div class="carousel-caption">
               <h1>Another slide ... for another service</h1>
               <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action3</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" onClick = "show()">Action3</a></p>
             </div>
           </div>
         </div>
@@ -169,7 +171,7 @@
             <div class="carousel-caption">
               <h1>Another slide ... for another service</h1>
               <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action4</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" onClick = "show()">Action4</a></p>
             </div>
           </div>
         </div>
@@ -179,7 +181,7 @@
             <div class="carousel-caption">
               <h1>Another slide ... for another service</h1>
               <p>Write some information about it here , don t care how long is it , the picture bellow is an scren shot of your product</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Action5</a></p>
+              <p><a class="btn btn-lg btn-primary" role="button" onClick = "show()">Action5</a></p>
             </div>
           </div>
         </div>
@@ -190,34 +192,51 @@
 
 </div>
 
-<script>
-String user ="";
-String pas ="";
-/*function log2(result){
-   bootbox.prompt("Password:", function(result2) {                
-  if (result === null) {                                             
-    Example.show("Prompt dismissed");                              
-  } else {
-     Example.show("Welcome ! "+result);                              
 
-            
+<script type="text/javascript">
+  function facebook(){
+    bootbox.alert("Link to the Facebook´s page"); 
   }
-});
-}
-*/
-  
-function log(){
-  bootbox.prompt("Username:", function(result) {                
-  if (result === null) {                                             
-    Example.show("Prompt dismissed");                              
-  } else {
-                Example.show("Hi!"+result);
-            
+  function twitter(){
+    bootbox.alert("Link to the Twitter´s page"); 
   }
-});
-}
+  function google(){
+    bootbox.alert("Link to the Google+´s page"); 
+  }
+  function prog(){
+    bootbox.alert("Link to the Programmer´s  page"); 
+  }
+
+
+
+  function show(){
+    bootbox.alert("Button to an action !");
+  }
   
-</script>    
+</script>
+<script type="text/javascript">
+  function log2(val){
+      bootbox.prompt({
+        title: 'Enter Your Password',
+        inputType: 'password',
+        buttons: {
+            confirm: {
+                label: 'Submit'
+            }
+        },
+        callback: function(){
+          bootbox.alert("Welcome back !"+val);
+        }
+    });
+    
+}
+function logear(){
+  bootbox.prompt("Username:",function(val){
+    log2(val);
+  });
+}
+
+</script>
 </body>
 <div class="well well-lg" id = "well">
   
