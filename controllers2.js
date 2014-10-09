@@ -1,18 +1,18 @@
-var Tshirt = require('./models/tshirts');
+var Doggie = require('./models/doggies');
 
 // obtiene las camisetas de la base de datos
 
 
-exports.getTshirt = function (req, res){
-	Tshirt.find(
-		function(err, tshirt) {
+exports.getDoggie = function (req, res){
+	Doggie.find(
+		function(err, doggie) {
 			if (err){
 			        res.send(err);
 				
 			}
 			else
-					res.json(tshirt); // devuelve todas las remeras  en JSON
-					console.log(tshirt);
+					res.json(doggie); // devuelve todas las remeras  en JSON
+					console.log(doggie);
 				}
 			);
 } ;
