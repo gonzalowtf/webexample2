@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app ="MainApp">
 <head>
     <meta charset="UTF-8">
     <title>WebExample-Store</title>
@@ -17,8 +17,9 @@
    
     <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
  
-    <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <script type="text/javascript" src = "bootbox.min.js"></script>
     
     
@@ -50,6 +51,12 @@
       color:white;
       font-size :55px;
     }
+    
+    
+     .thumbnail {
+        height:500px;
+        width:350px;
+}
     </style>
 
 
@@ -148,20 +155,21 @@
 
   		<div class="container" id="store">
   		
-        <h4>How Many ? : <span class="label label-success">{{tshirts.length}}</span></h4>
+        <h4>How Many ? : <span class="label label-success">{{cars.length}}</span></h4>
 
         <div class="row">
-            <div class="col-sm-6 col-md-4" ng-repeat ="tshirts in tshirt | filter:query">
+            <div class="col-sm-6 col-md-4" ng-repeat ="cars in car | filter:query">
                 <div class="thumbnail">
-                  <img src = {{tshirts.img}}></img>
+                  <img src = {{cars.img}}></img>
                             <div class="caption">
-                                 <h3 id = "nombre">Model :  {{tshirts.model}}</h3>
+                                 <h3 id = "nombre">Model :  {{cars.model}}</h3>
         <p>
-           Style: {{tshirts.style}} <br>
-           Size:  {{tshirts.size}} <br>
-           Colour:{{tshirts.colour}} <br>
-           Price: {{tshirts.price}} <br>
-           Summary:{{tshirts.summary}} <br> 
+           Company :{{cars.company}}<br>
+           Colour: {{cars.colour}} <br>
+           Type:  {{cars.type}} <br>
+           Features:{{cars.colour}} <br>
+           Price: {{cars.price}} <br>
+            
           
         </p>
         
@@ -176,16 +184,16 @@
 
   <script>
 
-angular.module('MainApp', [])
+angular.module('MainApp', ['ngRoute'])
 
 function mainController($scope, $http) {
-  $scope.tshirt = {};
+  $scope.cars = {};
   $scope.selected = false;
   
 
   // Obtenemos todos los datos de la base de datos
-  $http.get("https://api.mongolab.com/api/1/databases/tshirts/collections/tshirts?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO").success(function(data) {
-    $scope.tshirt = data;
+    $http.get("https://api.mongolab.com/api/1/databases/cars/collections/cars?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO").success(function(data) {
+    $scope.car = data;
     console.log(data);
   })
   .error(function(data) {
@@ -217,6 +225,7 @@ if(res ==false)   bootbox.alert("You decline for buying this item..");
 </span>
 
  
+<div class="well"><center>a Cars data base , as an example</center></div>
 
 
 </html>

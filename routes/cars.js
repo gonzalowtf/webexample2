@@ -1,16 +1,16 @@
 // en route
 module.exports = function(app) {
  
-  var Doggie = require('../models/doggies.js');
-  var controller = require ('../controllers2.js');
+  var Car = require('../models/cars.js');
+  var controller = require ('../controllers3.js');
   var modeloimagen = require ('../server.js');
  
   //GET - Return all tshirts in the DB
-  var findAllDoggies = function(req, res) {
-    console.log("GET - /doggies");
-      return Doggie.find(function(err, doggies) {
+  var findAllCars = function(req, res) {
+    console.log("GET - /cars");
+      return Car.find(function(err, cars) {
           if(!err) {
-              return res.send(doggies);
+              return res.send(cars);
           } else {
         res.statusCode = 500;
               console.log('Internal error(%d): %s',res.statusCode,err.message);
@@ -21,15 +21,15 @@ module.exports = function(app) {
  
   //GET - Return a Tshirt with specified ID
   var findById = function(req, res) {
-    console.log("GET - /doggie/:id");
-    return Doggie.findById(req.params.id, function(err, doggie) {
-      if(!doggie) {
+    console.log("GET - /car/:id");
+    return Car.findById(req.params.id, function(err, car) {
+      if(!car) {
         res.statusCode = 404;
         return res.send({ error: 'Not found' });
       }
       if(!err) {
         // Send { status:OK, tshirt { tshirt values }}
-        return res.send({ status: 'OK', doggie:doggie });
+        return res.send({ status: 'OK', car:car });
         // Send {tshirt values}
         // return res.send(tshirt);
       } else {
@@ -41,24 +41,24 @@ module.exports = function(app) {
   };
  
   //POST - Insert a new Tshirt in the DB
- var addDoggie = function(req, res) {
-    console.log('POST - /doggie');
+ var addCar = function(req, res) {
+    console.log('POST - /car');
     console.log(req.body);
  
-    var doggie = new Doggie({
-      model:    req.body.breed,
+    var car = new Car({
+      model:    req.body.model,
       images :  req.body.colour, 
-      style:    req.body.size,
+      style:    req.body.type,
       size :    req.body.features, 
       colour:   req.body.price, 
       price:    req.body.img
         
     });
  
-    doggie.save(function(err) {
+    car.save(function(err) {
       if(!err) {
-        console.log("Doggie created");
-        return res.send({ status: 'OK', doggie:doggie });
+        console.log("Car created");
+        return res.send({ status: 'OK', car:car });
       } else {
         console.log(err);
         if(err.name == 'ValidationError') {
@@ -72,33 +72,33 @@ module.exports = function(app) {
       }
     });
  
-    res.send(doggie);
+    res.send(car);
   };
  
   //PUT - Update a register already exists
-  var updateDoggie = function(req, res) {
-    console.log("PUT - /doggie/:id");
+  var updateCar = function(req, res) {
+    console.log("PUT - /car/:id");
     console.log(req.body);
-    return Doggie.findById(req.params.id, function(err, doggie) {
-      if(!doggie) {
+    return Car.findById(req.params.id, function(err, car) {
+      if(!car) {
         res.statusCode = 404;
         return res.send({ error: 'Not found' });
       }
  
-      if (req.body.model !== null) doggie.model = req.body.model;
-      if (req.body.price !== null) doggie.price = req.body.price;
-      if (req.body.images !== null) doggie.images = req.body.images; 
-      if (req.body.style !== null) doggie.style = req.body.style;
-      if (req.body.size !== null) doggie.size  = req.body.size;
-      if (req.body.colour !== null) doggie.colour = req.body.colour;
-      if (req.body.summary !== null) doggie.summary = req.body.summary;
-      if (req.body.name !== null) doggie.name = req.body.name;
+      if (req.body.model !== null) car.model = req.body.model;
+      if (req.body.price !== null) car.price = req.body.price;
+      if (req.body.images !== null) car.images = req.body.images; 
+      if (req.body.style !== null) car.style = req.body.style;
+      if (req.body.size !== null) car.size  = req.body.size;
+      if (req.body.colour !== null) car.colour = req.body.colour;
+      if (req.body.summary !== null) car.summary = req.body.summary;
+      if (req.body.name !== null) car.name = req.body.name;
 
  
-      return doggie.save(function(err) {
+      return car.save(function(err) {
         if(!err) {
           console.log('Updated');
-          return res.send({ status: 'OK', doggie:doggie });
+          return res.send({ status: 'OK',car:car });
         } else {
           if(err.name == 'ValidationError') {
             res.statusCode = 400;
@@ -110,23 +110,23 @@ module.exports = function(app) {
           console.log('Internal error(%d): %s',res.statusCode,err.message);
         }
  
-        res.send(doggie);
+        res.send(car);
       });
     });
   }
  
   //DELETE - Delete a Tshirt with specified ID
-  var deleteDoggie = function(req, res) {
-    console.log("DELETE - /doggie/:id");
-    return Doggie.findById(req.params.id, function(err, doggie) {
-      if(!doggie) {
+  var deleteCar = function(req, res) {
+    console.log("DELETE - /car/:id");
+    return Car.findById(req.params.id, function(err, car) {
+      if(!car) {
         res.statusCode = 404;
         return res.send({ error: 'Not found' });
       }
  
-      return doggie.remove(function(err) {
+      return car.remove(function(err) {
         if(!err) {
-          console.log('Removed doggie');
+          console.log('Removed car');
           return res.send({ status: 'OK' });
         } else {
           res.statusCode = 500;
@@ -138,11 +138,11 @@ module.exports = function(app) {
   }
  
   //Link routes and functions
-  app.get('/doggies', findAllDoggies);
-  app.get('/doggies', controller.getDoggie);
-  app.get('/doggie/:id', findById);
-  app.post('/doggie', addDoggie);
-  app.put('/doggie/:id', updateDoggie);
-  app.delete('/doggie/:id', deleteDoggie);
+  app.get('/cars', findAllCars);
+  app.get('/cars', controller.getCar);
+  app.get('/car/:id', findById);
+  app.post('/car', addCar);
+  app.put('/car/:id', updateCar);
+  app.delete('/car/:id', deleteCar);
 }
 

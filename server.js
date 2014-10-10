@@ -17,6 +17,8 @@ app.configure(function () {
 
 var routes = require('./routes/tshirts')(app); 
 var routes2 = require('./routes/doggies')(app); 
+var routes3 = require('./routes/cars')(app); 
+
 
 console.log(ip+":"+port);
 
