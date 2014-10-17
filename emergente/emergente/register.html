@@ -20,6 +20,7 @@
     <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script type="text/javascript" src = "bootbox.min.js"></script>
+
     <style>
 
     @font-face{
@@ -159,31 +160,28 @@
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <div class="input-group input-group-lg" id = "user">
   <span class="input-group-addon">@</span>
-  <input type="text" class="form-control" placeholder="Give us a Username...">
+  <input type="text" class="form-control" placeholder="Give us a Username..." id="username">
 </div>
 <div class="input-group input-group-lg" id = "password" >
   <span class="input-group-addon">P</span>
-  <input type="password" class="form-control" placeholder="Then a Password...">
+  <input type="password" class="form-control" placeholder="Then a Password..." id="pas">
 </div>
 <div class="input-group input-group-lg" id = "password2" >
   <span class="input-group-addon">P</span>
-  <input type="password" class="form-control" placeholder="Repeat it please">
+  <input type="password" class="form-control" placeholder="Repeat it please" id="pas2">
 </div>
 <div class="input-group input-group-lg" id = "email" >
   <span class="input-group-addon">E</span>
-  <input type="text" class="form-control" placeholder="and a E-mail...">
+  <input type="text" class="form-control" placeholder="and a E-mail..." id="theemail">
 </div>
 </div>
 
-<button type="button" class="btn btn-success" id = "register" onClick = "join()">Register now</button>
+<button type="button" class="btn btn-success" id = "register" onClick = "register()">Register now</button>
 
   </div>	
-  <script>
-function join(){
+ 
 
-bootbox.alert("You are a member now !");
-}
-
-  </script>
+  
+  <script type="text/javascript" src="register.js"></script>
 </body>
 </html>

@@ -101,7 +101,7 @@
         <button type="submit" class="btn btn-default">Go !</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li ><a href="#" onClick="logear()">Log In <link onClick="logear()" /></a></li>
+        <li><a href="#" onClick="log()">Log In</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -214,29 +214,9 @@
   }
   
 </script>
-<script type="text/javascript">
-  function log2(val){
-      bootbox.prompt({
-        title: 'Enter Your Password',
-        inputType: 'password',
-        buttons: {
-            confirm: {
-                label: 'Submit'
-            }
-        },
-        callback: function(){
-          bootbox.alert("Welcome back !     "+val);
-        }
-    });
-    
-}
-function logear(){
-  bootbox.prompt("Username:",function(val){
-    log2(val);
-  });
-}
 
-</script>
+<script type="text/javascript" src="script.js"></script>
+
 </body>
 <div class="well well-lg" id = "well">
   
