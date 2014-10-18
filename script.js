@@ -1,5 +1,5 @@
  function log2(val){
-     if(val ===null){
+     if(val ===null || val==="" || val.length < 3){
        bootbox.alert("Username is empty");
      }
      else{

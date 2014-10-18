@@ -20,6 +20,30 @@
     <!-- importando angular js -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
     <script type="text/javascript" src = "emergente/emergente/bootbox.min.js"></script>
+    <script type="text/javascript">
+    
+    
+    function getVar(){
+      
+      var url = location.search.replace("?",",");
+      var arr=url.split("&");
+      var obj = {};
+      for (var i =0; i<arr.length;i++){
+        var x = arr[i].split("=");
+        obj[x[0]]=x[1];
+      }
+      return obj;
+      
+    }
+      
+      var variab =getVar();
+      console.log(variab);
+      if(variab.status == "OK"){
+        document.getElementById("singin").value=variab.user;
+        bootbox.alert("You are a member now !!   "+variab.user);
+      }
+      
+    </script>
 
     <style>
 
@@ -101,7 +125,7 @@
         <button type="submit" class="btn btn-default">Go !</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onClick="log()">Log In</a></li>
+        <li id="singin"><a href="#" onClick="log()" >Log In</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
