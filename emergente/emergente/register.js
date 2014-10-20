@@ -1,15 +1,16 @@
 function redireccionar(user) { 
     var status = "OK";
+    var an = "que";
     console.log(user);
 
-pasarVariables("https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html",'user,status',user,status);
+pasarVariables("https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html",'user,status',status,user,an);
 
    
 }
-function pasarVariables(pagina,nombres,user,status) {
+function pasarVariables(pagina,nombres,user,status,an) {
 pagina +="?";
   var nomVec = nombres.split(",");
-  var valores = [user,status];
+  var valores = [an,status,user];
   console.log(user + status);
   for (var i=0; i<nomVec.length; i++)
     pagina += nomVec[i] + "=" + valores[i]+"&";
@@ -50,16 +51,16 @@ pagina +="?";
     
   */    
      
-     $.ajax( { url: "https://api.mongolab.com/api/1/databases/doggies/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",
+    $.ajax( { url: "https://api.mongolab.com/api/1/databases/cars/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",
 		  data: JSON.stringify( seedData ),
 		  type: "POST",
-		  contentType: "application/json" } );
+		  contentType: "application/json" } ).success(console.log("success"));
      
      console.log("llego");  
      
         
 
-setTimeout(redireccionar(user), 1000); 
+setTimeout(redireccionar(user), 3000); 
       
     }
     //Components.utils.import("../mongodb.js");
