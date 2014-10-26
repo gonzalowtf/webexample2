@@ -231,10 +231,27 @@
     }
       
       var variab =getVar();
-      console.log(variab.user);
+      console.log(variab.user+variab.status + variab.password + variab.email);
       
         
         if(variab.status != null){
+          
+            var seedData = [
+     {
+          username: variab.status,
+          password: variab.password,
+          email: variab.email
+          
+  }
+  ];
+          
+     $.ajax({ url: "https://api.mongolab.com/api/1/databases/cars/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",
+		  data: JSON.stringify(seedData),
+		  type: "POST",
+		  contentType: "application/json" } ).success(console.log("llego"));  
+     
+          
+          
             bootbox.alert("You are a member now !!   "+variab.status);
             document.getElementById("id").innerHTML = variab.status;
         }
