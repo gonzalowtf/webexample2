@@ -2,7 +2,7 @@ var al = getVar();
 
 
 change(al.val);
-
+console.log(al.val);
 
  function log2(val){
      var con =0;
@@ -75,13 +75,22 @@ function logeado(val){
 function change(val){
     
     if(typeof(val)== "string" ){
-
-         document.getElementById("conta").setAttribute("href", "emergente/emergente/contact.html?y=nothing&val="+val+"&");
+         
          document.getElementById("id").innerHTML = val;
-         document.getElementById("reg").setAttribute("href", "emergente/emergente/register.html?y=nothingval="+val+"&");
-         document.getElementById("stor").setAttribute("href", "emergente/emergente/store.html?y=nothingval="+val+"&");
-         document.getElementById("chat").setAttribute("href", "emergente/emergente/chat.html?y=nothingval="+val+"&");
-         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothingval="+val+"&");
+
+         document.getElementById("conta").setAttribute("href", "contact.html?y=nothing&val="+val+"&");
+         document.getElementById("conta2").setAttribute("href", "contact.html?y=nothing&val="+val+"&");
+         document.getElementById("reg").setAttribute("href", "register.html?y=nothing&val="+val+"&");
+         document.getElementById("stor").setAttribute("href", "store.html?y=nothing&val="+val+"&");
+         document.getElementById("chat").setAttribute("href", "chat.html?y=nothing&val="+val+"&");
+         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothing&val="+val+"&");
+         document.getElementById("richard").setAttribute("href", "richard.html?y=nothing&val="+val+"&");
+         document.getElementById("history").setAttribute("href", "history.html?y=nothing&val="+val+"&");
+         document.getElementById("michael").setAttribute("href", "michael.html?y=nothing&val="+val+"&");
+
+
+
+         
          document.getElementById("loged").setAttribute("onClick", "logeado('"+val+"')");
 
 

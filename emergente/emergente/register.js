@@ -2,6 +2,7 @@ function returnValue(user,email,password){
     
     var sta;
     var con = 0;
+    var val;
     $.get("https://api.mongolab.com/api/1/databases/cars/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",function(data,status){
     console.log(data + status+ data.length);
     for(var i =0;i<data.length;i++){
@@ -29,7 +30,7 @@ function returnValue(user,email,password){
           
   }
 ];
-      
+      val=user;
       console.log(seedData);
 /*
     var xhr = new XMLHttpRequest();
@@ -43,7 +44,7 @@ function returnValue(user,email,password){
     $.ajax( { url: "https://api.mongolab.com/api/1/databases/cars/collections/users?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO",
 		  data: JSON.stringify( seedData ),
 		  type: "POST",
-		  contentType: "application/json" } ).success(setTimeout(redireccionar(user,password,email), 3000)); 
+		  contentType: "application/json" } ).success(setTimeout(redireccionar(user,password,email,val), 3000)); 
       
      
      console.log("llego");  
@@ -82,19 +83,19 @@ function returnValue(user,email,password){
    
 }
 
-function redireccionar(user,password,email) { 
+function redireccionar(user,password,email,val) { 
     var status = user;
     var an = "que";
     console.log(user);
 
-pasarVariables("https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html",'user,status,password,email',status,user,password,email);
+pasarVariables("https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html",'user,status,password,email,val',status,user,password,email,val);
 
    
 }
-function pasarVariables(pagina,nombres,user,status,password,email) {
+function pasarVariables(pagina,nombres,user,status,password,email,val) {
 pagina +="?";
   var nomVec = nombres.split(",");
-  var valores = [status,user,password,email];
+  var valores = [status,user,password,email,val];
   console.log(user + status);
   for (var i=0; i<nomVec.length; i++)
     pagina += nomVec[i] + "=" + valores[i]+"&";
