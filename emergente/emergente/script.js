@@ -62,7 +62,7 @@ function log(){
 function logeado(val){
     
     
-    bootbox.alert("You are already logged in ! !------>"+val);
+    bootbox.alert("You are already logged in ! !------>"+val+"\n For log out just leave the site");
     
     
     
@@ -79,10 +79,10 @@ function change(val){
          document.getElementById("id").innerHTML = val;
 
          document.getElementById("conta").setAttribute("href", "contact.html?y=nothing&val="+val+"&");
-         document.getElementById("reg").setAttribute("href", "register.html?y=nothingval="+val+"&");
-         document.getElementById("stor").setAttribute("href", "store.html?y=nothingval="+val+"&");
-         document.getElementById("chat").setAttribute("href", "chat.html?y=nothingval="+val+"&");
-         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothingval="+val+"&");
+         document.getElementById("reg").setAttribute("href", "register.html?y=nothing&val="+val+"&");
+         document.getElementById("stor").setAttribute("href", "store.html?y=nothing&val="+val+"&");
+         document.getElementById("chat").setAttribute("href", "chat.html?y=nothing&val="+val+"&");
+         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothing&val="+val+"&");
 
 
 

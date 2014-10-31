@@ -100,11 +100,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Found Us<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Google +</a></li>
+            <li><a href="#" onClick="facebook()">Facebook</a></li>
+            <li><a href="#" onClick="twitter()">Twitter</a></li>
+            <li><a href="#" onClick ="google()">Google +</a></li>
             <li class="divider"></li>
-            <li><a href="#">With The Programmer</a></li>
+            <li><a href="#" onClick="prog()">With The Programmer</a></li>
+
           </ul>
         </li>
       </ul>
@@ -172,7 +173,7 @@
           
         </p>
         
-        <p><span class="mens"><a class="btn btn-primary" role="button" onClick = "buy()">Buy</a></span></p>
+        <p><span class="mens"><a class="btn btn-primary" role="button" onClick = "buy(al)">Buy</a></span></p>
       </div>
     </div>
   </div>
@@ -206,19 +207,48 @@ function mainController($scope, $http) {
 
   </script>
   <script type="text/javascript" src="script2.js"></script>
+   <script type="text/javascript">
+    
+    
+  function facebook(){
+    bootbox.alert("Link to the Facebook´s page"); 
+  }
+  function twitter(){
+    bootbox.alert("Link to the Twitter´s page"); 
+  }
+  function google(){
+    bootbox.alert("Link to the Google+´s page"); 
+  }
+  function prog(){
+    bootbox.alert("Link to the Programmer´s  page"); 
+  }
+
+  </script>
   </body>
 <span class="mens">
   <script type = "text/JavaScript">
 
 
-function buy(){
+function buy(al){
+  
+  var link = "https://webexample-c9-gonzalowtf77.c9.io/webexample2/emergente/emergente/register.html";
+  
+  if(typeof(al.val)=="string"){
 
-bootbox.confirm("Are you sure you want to buy this item ?!", function (res){
+bootbox.confirm(al.val+" Are you sure you want to buy this item ?!", function (res){
 if(res == true)   bootbox.alert("Item Bought !");
 if(res ==false)   bootbox.alert("You decline for buying this item..");
 });
-
 }
+else{
+ bootbox.confirm("You are not logged in ! Please join us to get our products",function(res){
+   
+   if(res == true)  window.location = link;
+
+ });
+}
+}
+
 
 
   </script>

@@ -62,7 +62,7 @@ function log(){
 function logeado(val){
     
     
-    bootbox.alert("You are already logged in ! !------>"+val);
+    bootbox.alert("You are already logged in ! !------>"+val+"\n For log out just leave the site");
     
     
     
