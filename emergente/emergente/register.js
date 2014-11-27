@@ -120,7 +120,7 @@ pagina +="?";
  
     }
   else{
-    bootbox.alert("the passwords don't match!");
+    bootbox.alert("the passwords don't match! or username is empty");
   }
   
   }
