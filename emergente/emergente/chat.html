@@ -40,7 +40,7 @@
      
      width:20%;
      position: absolute;
-     top:30%;
+     top: 40%;
      left:1%;
      float: left;
      	
@@ -51,15 +51,25 @@
       width:40%;
       position: absolute;
       left:20%;
-      top: 30%;
+      top: 40%;
       	
+    }
+    .divider2{
+      position: relative;
+      
+      color : white;
     }
     .container3{
       height:40%;
       width:40%;
       position: absolute;
       left: 60%;
-      top:30%;
+      top: 40%;
+
+    }
+    .message{
+      position: relative;
+      width : 25%;
     }
     </style>
 
@@ -119,6 +129,29 @@
     Chat Room
     
 </div></center>
+<hr class="divider2"></hr></br></br>
+<div class="message">
+<form id ="sendMessenge" class ="input-group" style ="text-align:center; margin:0 auto;">
+            	
+
+
+<span class ="input-group-btn">
+<input id ="messenge" class = "form-control input-lg" type ="text" placeholder = "message...."></input>
+
+<button class ="btn btn-lg btn-primary" type ="submit">
+
+
+
+Send
+</button>
+
+
+</span>
+
+
+</form>
+</div>
+</br></br>
 <div class="container">
   <div class="panel panel-primary" id ="panel">
     <div class="panel-heading">
@@ -128,6 +161,7 @@
     Panel content 
   </div>
 </div>
+
 </div>
 <div class="container2">
   <div class="panel panel-success" id ="panel2">
@@ -149,5 +183,24 @@
   </div>
   </div>
 </div>  
+<script type="text/javascript">
+    
+    
+  function facebook(){
+    bootbox.alert("Link to the Facebook´s page"); 
+  }
+  function twitter(){
+    bootbox.alert("Link to the Twitter´s page"); 
+  }
+  function google(){
+    bootbox.alert("Link to the Google+´s page"); 
+  }
+  function prog(){
+    bootbox.alert("Link to the Programmer´s  page"); 
+  }
+
+  </script>
+    <script type="text/javascript" src="script.js"></script>
+
 </body>    
 </html>    
