@@ -1,11 +1,12 @@
 var express = require("express"),
-    app     = express(),
+    app = express(),
     http    = require("http"),
     server  = http.createServer(app),
     port = process.env.PORT || 8000,
     mongoose = require("mongoose"),
-    ip=process.env.IP;
-    
+    ip=process.env.IP,
+    io = require("socket.io").listen(server),
+    nicknames = [];
     
     
 app.configure(function () {
@@ -13,37 +14,73 @@ app.configure(function () {
   app.use(express.methodOverride());
   app.use(app.router); 
 });
-//app.use('/emergente', express.static(__dirname + '/emergente/emergente'));
+app.use('/emergente/emergente', express.static(__dirname + '/emergente/emergente'));
 
 
 var routes = require('./routes/tshirts')(app); 
 var routes2 = require('./routes/doggies')(app); 
 var routes3 = require('./routes/cars')(app); 
 
+app.get('/', function(req, res) {
+          console.log(req.url);
+     
+          res.sendfile(__dirname + '/index.html');      
+      
+      });
+
+app.get('/emergente/emergente/chat.html', function(req, res) {
+          console.log(req.url);
+     
+        
+          res.sendfile(__dirname + '/emergente/emergente/chat.html');      
+      
+      });      
+      
+         
 
 console.log(ip+":"+port);
+server.listen(port, function(err) {
+  if(err){
+      console.log("error !" + err);
+      
+  }else{
+      
+  
+  console.log("Node server running on http://localhost:3000 or online port");
+}
+    
+});
 
+/*var handler = function(req,res){
+    console.log(req.url);
 
-app.get('/', function(req, res) {
+    if (req.url==="/"){
+         res.sendfile(__dirname + '/index.html'); 
+    }
+    else if (res.url === "/emergente/chat.html"){
+        res.end("a pagina chat");
+    }
+    
+}*/
+
+/*app.get('/', function(req, res) {
       console.log(req.url);
       if(req.url === '/'){
           res.sendfile(__dirname + '/index.html');      
       }
-      if(req.url === '/emergente/emergente/chat.html') {
+      if(req.url === __dirname+'/emergente/emergente/chat.html') {
         res.sendfile(__dirname +'/emergente/emergente/chat.html');
       }
 
   
-});
+});*/
 
 
 
 // Conexión
 
 
- server.listen(port, function() {
-  console.log("Node server running on http://localhost:3000 or online port");
-});
+ 
 
 
 

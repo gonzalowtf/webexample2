@@ -22,9 +22,9 @@ var Doggie = new Schema({
   });   
   
  
-Doggie.path('model').validate(function (v) {
+/*Doggie.path('model').validate(function (v) {
     return ((v !== "") && (v !== null));
 });
-
+*/
 
 module.exports = mongoose.model('Doggie', Doggie);

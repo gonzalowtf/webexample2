@@ -22,8 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <script type="text/javascript" src = "bootbox.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
-    <script src ="/socket.io/socket.io.js"></script>
-
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     
     <style type="text/css">
       
@@ -186,19 +185,59 @@ Send
   </div>
   </div>
 </div>  
+
 <script type="text/javascript">
   function t(vari){
     
      
      var socket = io.connect(); 
      var messageForm = document.getElementById('sendmessage');
+     var theM = document.getElementById('mes');
      var users=document.getElementById('nick');
      var chatIndividual =document.getElementById('message');
      var chatGeneral =document.getElementById('message2');
      console.log("llego"); 
     
+    socket.emit("new-user",vari.val,function(data){
+          if(data){
+                  users.innerHTML = vari.val
+              }
+          else{
+                     bootbox.alert("You are not logged in or we have a problem with the connection , try it again later");
+                }
+
+
+
+            
+            console.log("llegoo");
+
+
+     });
   
   
+  
+  socket.on("usernames", function(data){
+            var html ="";
+            var i;
+            for(i=0; i<data.length;i++){
+                html += data[i] + '</br>';
+            }
+            users.html(html);
+     });
+     
+     
+      messageForm.submit(function(e){
+
+     	e.preventDefault();
+     	socket.emit('send-message',theM.val());
+ 	    theM.val('');
+     	     });
+
+     	socket.on('new-message',function(data){
+     		chatGeneral.append('</br>'+data.nick + ":" +data.msg +"<br>");
+     	})
+     
+     
   }
 </script>
 
