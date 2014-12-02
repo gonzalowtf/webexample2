@@ -115,6 +115,10 @@ function change(val){
           
 
 
+}else{
+
+
+  bootbox.alert("must log in to use the chat room !");
 }
     
     

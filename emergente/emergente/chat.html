@@ -21,7 +21,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <script type="text/javascript" src = "bootbox.min.js"></script>
-    <script type="text/javascript" src="scriptchat.js"></script>
+    <script type="text/javascript" src = "scriptchat.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     
     <style type="text/css">
@@ -140,7 +140,7 @@
 <span class ="input-group-btn">
 <input id ="mes" class = "form-control input-lg" type ="text" placeholder = "message...."></input>
 
-<button class ="btn btn-lg btn-primary" type ="submit" onClick="button1()">
+<button class ="btn btn-lg btn-primary" type ="submit">
 
 
 
@@ -205,7 +205,6 @@ Send
               }
           else{
                      bootbox.alert("You are not logged in or we have a problem with the connection , try it again later");
-                     console.log("ningun usuario conectado")
                 }
 
 
@@ -228,21 +227,88 @@ Send
      });
      
 
-     }
      
+     }
       function button1(){
 
-     	
-     	socket.emit('send-message',theM.val());
- 	    theM.val('');
-     	     
+       
+      console.log(theM.value);
+      socket.emit('send-message',theM.value);
+      theM.value('');
+      }        
 
-     	socket.on('new-message',function(data){
-     		chatGeneral.innerHTML ='</br>'+data.nick + ":" +data.msg +"<br>";
-     	})
+      socket.on('new-message',function(data){
+        chatGeneral.innerHTML+='</br>'+data.nick + ":" +data.msg +"<br>";
+      })
+    
+
+   /* function t(vari){
+         
+
+          jQuery(function($,vari){
+
+             var socket = io.connect(); 
+             var $messageForm = $('#sendmessage');
+             var $theM = $('#mes');
+             var $users=$('#nick');
+             var $chatIndividual =$('#message');
+             var $chatGeneral =$('#message2');
+             console.log("llego"); 
+    
+
+
+             socket.emit("new-user",vari.val,function(data){
+          if(data){
+                  
+                  console.log("usuarios conectados");
+              }
+          else{
+                     bootbox.alert("You are not logged in or we have a problem with the connection , try it again later");
+                }
+
+
+
+            
+            console.log("llegoo");
+
+
+     }); 
+        
+
+        socket.on("usernames", function(data){
+            var html ="";
+            for(i=0; i<data.length;i++){
+                html += data[i] + '</br>';
+            }
+            $users.html(html);
+
+
+          });
+
+
+
+
+        $messageForm.submit(function(e){
+
+      e.preventDefault();
+      socket.emit('send-message',$theM.val());
+    $theM.val('');
+           });
+
+      socket.on('new-message',function(data){
+        $chatGeneral.append('</br>'+data.nick + ":" +data.msg +"<br>");
+      });
+
+
+        });
+
+    }
+  
+*/
+
+  
      
-     
-  }
+  
 </script>
 
 <script type="text/javascript" >
