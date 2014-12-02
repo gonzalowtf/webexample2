@@ -1,11 +1,11 @@
 var express = require("express"),
     app = express(),
-    http    = require("http"),
+    http    = require("http"), //m http module
     server  = http.createServer(app),
     port = process.env.PORT || 8000,
     mongoose = require("mongoose"),
     ip=process.env.IP,
-    io = require("socket.io").listen(server),
+    io = require("socket.io").listen(server),  //io listen on server where app s running
     nicknames = [];
     
     
@@ -14,6 +14,8 @@ app.configure(function () {
   app.use(express.methodOverride());
   app.use(app.router); 
 });
+
+//directing to other places of the site
 app.use('/emergente/emergente', express.static(__dirname + '/emergente/emergente'));
 
 
@@ -22,11 +24,14 @@ var routes2 = require('./routes/doggies')(app);
 var routes3 = require('./routes/cars')(app); 
 
 app.get('/', function(req, res) {
-          console.log(req.url);
+          //console.log(req.url);  actual direction
      
-          res.sendfile(__dirname + '/index.html');      
+          res.sendfile(__dirname + '/index.html');  
+          //res.end("hello world!");    
       
       });
+
+//directing to another page now when page state in this position
 
 app.get('/emergente/emergente/chat.html', function(req, res) {
           console.log(req.url);
