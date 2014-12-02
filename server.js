@@ -46,7 +46,7 @@ server.listen(port, function(err) {
   }else{
       
   
-  console.log("Node server running on http://localhost:3000 or online port");
+  console.log("Node server running on http://localhost:8000 or online port");
 }
     
 });
@@ -114,7 +114,7 @@ io.sockets.on("connection",function(socket){
 	});
     //"send-mesage" and "new message" are the functions on index and works everywhere
     socket.on("send-message" , function(data){
-    	io.sockets.emit('new-message',{msg:data , nick : socket.nickname});
+    	io.sockets.emit('new-message',{msg:data , nick:socket.nickname});
     });
 
 function updatenicknames(){

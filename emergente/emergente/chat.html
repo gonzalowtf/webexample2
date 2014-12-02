@@ -21,7 +21,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
     <script type="text/javascript" src = "bootbox.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="scriptchat.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     
     <style type="text/css">
@@ -140,7 +140,7 @@
 <span class ="input-group-btn">
 <input id ="mes" class = "form-control input-lg" type ="text" placeholder = "message...."></input>
 
-<button class ="btn btn-lg btn-primary" type ="submit">
+<button class ="btn btn-lg btn-primary" type ="submit" onClick="button()">
 
 
 
@@ -200,7 +200,8 @@ Send
     
     socket.emit("new-user",vari.val,function(data){
           if(data){
-                  users.innerHTML = vari.val
+                  users.innerHTML = vari.val;
+                  console.log("usuarios conectados");
               }
           else{
                      bootbox.alert("You are not logged in or we have a problem with the connection , try it again later");
@@ -222,16 +223,16 @@ Send
             for(i=0; i<data.length;i++){
                 html += data[i] + '</br>';
             }
-            users.html(html);
+            users.innerHTML=html;
      });
      
      
-      messageForm.submit(function(e){
+      function button(){
 
-     	e.preventDefault();
+     	
      	socket.emit('send-message',theM.val());
  	    theM.val('');
-     	     });
+     	     
 
      	socket.on('new-message',function(data){
      		chatGeneral.append('</br>'+data.nick + ":" +data.msg +"<br>");
@@ -286,7 +287,7 @@ Send
 
   </script>
   
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="scriptchat.js"></script>
 
 </body>    
 </html>    
