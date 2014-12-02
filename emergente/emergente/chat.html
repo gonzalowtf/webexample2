@@ -140,7 +140,7 @@
 <span class ="input-group-btn">
 <input id ="mes" class = "form-control input-lg" type ="text" placeholder = "message...."></input>
 
-<button class ="btn btn-lg btn-primary" type ="submit" onClick="button()">
+<button class ="btn btn-lg btn-primary" type ="submit" onClick="button1()">
 
 
 
@@ -200,11 +200,12 @@ Send
     
     socket.emit("new-user",vari.val,function(data){
           if(data){
-                  users.innerHTML = vari.val;
+                  
                   console.log("usuarios conectados");
               }
           else{
                      bootbox.alert("You are not logged in or we have a problem with the connection , try it again later");
+                     console.log("ningun usuario conectado")
                 }
 
 
@@ -226,8 +227,10 @@ Send
             users.innerHTML=html;
      });
      
+
+     }
      
-      function button(){
+      function button1(){
 
      	
      	socket.emit('send-message',theM.val());
@@ -235,7 +238,7 @@ Send
      	     
 
      	socket.on('new-message',function(data){
-     		chatGeneral.append('</br>'+data.nick + ":" +data.msg +"<br>");
+     		chatGeneral.innerHTML ='</br>'+data.nick + ":" +data.msg +"<br>";
      	})
      
      
