@@ -75,6 +75,12 @@
       top: 30%;
       width : 25%;
     }
+    .visitor{
+       
+       float:right;
+
+
+    }
     
     </style>
 
@@ -315,25 +321,30 @@ function aleatorio(inferior,superior){
        //t(vari);
                          }  
 
-                         
+             var c= color();    
+
+
 
 jQuery(function($){
 
              var socket = io.connect(); 
              var $vari =getVar();
-             var $c= color();
              var $messageForm = $('#sendmessage');
              var $theM = $('#mes');
              var $users=$('#nick');
              var $chatIndividual =$('#message');
              var $chatGeneral =$('#message2');
-             console.log("llego"); 
+             console.log("llego");
+             var arrayColours=[];
+             var us=[];
     
-
+            arrayColours[0]=c;
+            us[0]=vari.val; 
 
              socket.emit("new-user",vari.val,function(data){
           if(data){
                   
+
                   console.log("usuarios conectados");
               }
           else{
@@ -353,11 +364,59 @@ jQuery(function($){
 
         socket.on("usernames", function(data){
             var html ="";
+            var con=0;
             for(i=0; i<data.length;i++){
-                html += data[i] + '</br>';
-            }
-            $users.html(html);
+                for(j=0;j<us.length;j++){
+                  if(data[i]!=us[j]){
+                    con++;
+                }else{
+                      break;
+                }
+                if(con==us.length){
+                    us[con+1]=data[i];
+                    c=color();
+                    console.log(c);
 
+                    arrayColours[con+1]=c;
+                    break;
+
+                }
+                }
+                console.log(us);
+                console.log(arrayColours);
+                
+                              
+
+                  }
+
+
+                  for(k=0;k<data.length;k++){
+
+                        for(z=0;z<us.length;z++){
+
+                         if(data[k]==us[z]){
+                           
+                            html += '<i style="color:'+arrayColours[z]+'">'+data[k] + '</i></br>';
+                            console.log(html);
+                            $users.html(html);
+                            break;
+
+
+
+                         }
+
+
+
+
+
+
+
+                        }
+
+
+
+
+                  }
 
           });
 
@@ -373,8 +432,30 @@ jQuery(function($){
 
       socket.on('new-message',function(data){
         
-        $chatGeneral.append('</br><i style="color:'+$c+'">'+data.nick + "</i>:" +data.msg +"<br>");
-      
+        if(data.nick===vari.val){
+        $chatGeneral.append('<br><i style="color:'+arrayColours[0]+'">'+data.nick + "</i>:" +data.msg +"<br>");
+          console.log("print local");
+      }else{
+        
+                for(i=0;i<us.length;i++){
+                  if(data.nick==us[i]){
+
+            $chatGeneral.append('<br><span class = "visitor"><i style="color:'+arrayColours[i]+'">'+data.nick + "</i>:" +data.msg +"<br></span>");
+
+                  console.log("print visitor");
+
+
+
+
+
+
+                  }
+                }
+
+        
+
+      }
+
       
       });
 

@@ -111,9 +111,12 @@ io.sockets.on("connection",function(socket){
        }
        else{
        	callback(true);
+        if(data!=null){
        	socket.nickname=data;
+
        	nicknames.push(socket.nickname);
        	updatenicknames();
+       }
        }
 
 	});
