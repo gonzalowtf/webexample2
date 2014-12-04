@@ -335,13 +335,10 @@ jQuery(function($){
              var $chatIndividual =$('#message');
              var $chatGeneral =$('#message2');
              console.log("llego");
-             var arrayColours=[];
-             var us=[];
-    
-            arrayColours[0]=c;
-            us[0]=vari.val; 
-
-             socket.emit("new-user",vari.val,function(data){
+             
+              var us = vari.val;
+            
+             socket.emit("new-user",{user:us,col:c},function(data){
           if(data){
                   
 
@@ -366,59 +363,16 @@ jQuery(function($){
             var html ="";
             var con=0;
             for(i=0; i<data.length;i++){
-                for(j=0;j<us.length;j++){
-                  if(data[i]!=us[j]){
-                    con++;
-                }else{
-                      break;
+                            html += "<i style='color:"+data[i].col+"'>"+data[i].user + '</i></br>';
+                            console.log(html);
+                            $users.html(html);
+                            console.log(data[i]);
                 }
-                if(con==us.length){
-                    us[con+1]=data[i];
-                    c=color();
-                    console.log(c);
-
-                    arrayColours[con+1]=c;
-                    break;
-
-                }
-                }
-                console.log(us);
-                console.log(arrayColours);
+                
                 
                               
 
-                  }
-
-
-                  for(k=0;k<data.length;k++){
-
-                        for(z=0;z<us.length;z++){
-
-                         if(data[k]==us[z]){
-                           
-                            html += '<i style="color:'+arrayColours[z]+'">'+data[k] + '</i></br>';
-                            console.log(html);
-                            $users.html(html);
-                            break;
-
-
-
-                         }
-
-
-
-
-
-
-
-                        }
-
-
-
-
-                  }
-
-          });
+                  });
 
 
 
@@ -426,38 +380,30 @@ jQuery(function($){
         $messageForm.submit(function(e){
 
       e.preventDefault();
-      socket.emit('send-message',$theM.val());
-    $theM.val('');
+      socket.emit('send-message','<i style="color:'+c+'">'+vari.val + "</i>:" +$theM.val());
+          $theM.val('');
            });
 
       socket.on('new-message',function(data){
         
-        if(data.nick===vari.val){
-        $chatGeneral.append('<br><i style="color:'+arrayColours[0]+'">'+data.nick + "</i>:" +data.msg +"<br>");
-          console.log("print local");
-      }else{
-        
-                for(i=0;i<us.length;i++){
-                  if(data.nick==us[i]){
-
-            $chatGeneral.append('<br><span class = "visitor"><i style="color:'+arrayColours[i]+'">'+data.nick + "</i>:" +data.msg +"<br></span>");
-
-                  console.log("print visitor");
+        if(data.nick.user==vari.val){
 
 
-
-
-
-
-                  }
-                }
-
-        
+        $chatGeneral.append("<br>"+data.msg+"<br>");
+      }
+      else{
+                $chatGeneral.append("<br><span class='visitor'>"+data.msg+"<br></span>");
 
       }
+        
+      });  
+
+        
 
       
-      });
+
+      
+      
 
 
         });

@@ -123,6 +123,8 @@ io.sockets.on("connection",function(socket){
     //"send-mesage" and "new message" are the functions on index and works everywhere
     socket.on("send-message" , function(data){
     	io.sockets.emit('new-message',{msg:data , nick:socket.nickname});
+       //io.sockets.emit('new-message',data);
+
     });
 
 function updatenicknames(){

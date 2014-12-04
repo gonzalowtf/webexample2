@@ -46,6 +46,12 @@ console.log(al.val);
           bootbox.alert("Welcome back !     "+val);
           
         }
+        else{
+
+                      bootbox.alert("Wrong password for "+val+" please try it again or register");
+
+
+        }
           
         }
     });
