@@ -89,14 +89,22 @@
               left: 19%;
               top:30%;
               width: 25%;
+    }
+   
 
-
-
-
+/*    .dropdown{
+      
+      
+      
+      position: absolute;  
+      left: 6%;
+      top:30%;
+      height: 8%;
+      width: 8%;
 
     }
-
-    
+*/
+        
     </style>
 
 </head>
@@ -177,6 +185,16 @@ Send
 
 </form>
 </div>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    users online
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" id="dropdown1">
+    
+                 
+                </ul>
+     </div>           
 <div class="message">
 <form id ="sendmessage" class ="input-group" style ="text-align:center; margin:0 auto;">
             	
@@ -372,6 +390,7 @@ jQuery(function($){
              var $users=$('#nick');
              var $chatIndividual =$('#message');
              var $chatGeneral =$('#message2');
+             var $dropdown=$('#dropdown1');
              console.log("llego");
              
               var us = vari.val;
@@ -399,12 +418,23 @@ jQuery(function($){
 
         socket.on("usernames", function(data){
             var html ="";
+            var dr ="";
             var con=0;
             for(i=0; i<data.length;i++){
+
+              if(data[i].user==undefined){
+
+                break;
+              }
+              else{
                             html += "<i style='color:"+data[i].col+"'>"+data[i].user + '</i></br>';
+                            dr+="<li><a href='#'>"+data[i].user+"<a></li>";
+                            console.log(dr);
                             console.log(html);
+                            $dropdown.html(dr);
                             $users.html(html);
-                            console.log(data[i]);
+                            console.log(data[i].user);
+                          }
                 }
                 
                 
@@ -471,4 +501,6 @@ jQuery(function($){
     <script type="text/javascript" src="scriptchat.js"></script>
 
 </body>    
+
+
 </html>    
