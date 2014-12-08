@@ -24,8 +24,7 @@
     <script type="text/javascript" src = "scriptchat.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     	<script src ="https://code.jquery.com/jquery.js"></script>
-
-
+     
     
     <style type="text/css">
       
@@ -90,20 +89,38 @@
               top:30%;
               width: 25%;
     }
+    b:active{
+
+            background-color: yellow;
+  
+    }
    
 
-/*    .dropdown{
+   /*.dropdown{
       
       
       
       position: absolute;  
-      left: 6%;
+      left: 50%;
       top:30%;
       height: 8%;
       width: 8%;
 
     }
-*/
+
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    users online
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" id="dropdown1">
+    
+                 
+                </ul>
+     </div>           
+
+    */
+
         
     </style>
 
@@ -185,16 +202,7 @@ Send
 
 </form>
 </div>
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    users online
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" id="dropdown1">
-    
-                 
-                </ul>
-     </div>           
+
 <div class="message">
 <form id ="sendmessage" class ="input-group" style ="text-align:center; margin:0 auto;">
             	
@@ -220,7 +228,7 @@ Send
 <div class="container">
   <div class="panel panel-primary" id ="panel">
     <div class="panel-heading">
-      <h3 class="panel-title">Users online</h3>
+      <h3 class="panel-title" id="selected">Users online</h3>
     </div>
   <div id="nick" class="panel-body">
    
@@ -248,6 +256,8 @@ Send
   </div>
   </div>
 </div>  
+
+
 
 <script type="text/javascript">
    
@@ -391,6 +401,8 @@ jQuery(function($){
              var $chatIndividual =$('#message');
              var $chatGeneral =$('#message2');
              var $dropdown=$('#dropdown1');
+             var $selected=$('#selected');
+             
              console.log("llego");
              
               var us = vari.val;
@@ -427,7 +439,7 @@ jQuery(function($){
                 break;
               }
               else{
-                            html += "<i style='color:"+data[i].col+"'>"+data[i].user + '</i></br>';
+                    html += "<b><i style='color:"+data[i].col+"'>"+data[i].user + '</i></b></br>';
                             dr+="<li><a href='#'>"+data[i].user+"<a></li>";
                             console.log(dr);
                             console.log(html);
@@ -468,17 +480,19 @@ jQuery(function($){
 
         
 
-      
-
-      
+          
+              
       
 
 
         });
 
 
+
+
    
 </script>
+
 
 <script type="text/javascript">
     
