@@ -129,7 +129,7 @@ io.sockets.on("connection",function(socket){
 
 function updatenicknames(){
 	       	io.sockets.emit("usernames",nicknames);
-
+          console.log(nicknames);
 
 }
 
@@ -138,5 +138,63 @@ function updatenicknames(){
   			if(!socket.nickname) return;
   			nicknames.splice(nicknames.indexOf(socket.nickname),1);
   			updatenicknames();
+  });
+
+
+  socket.on("individual",function(data,callback){
+
+          var msg = data.trim(); //this take care of a posible space at the beggining
+          var s="";
+          var i;
+                  for(i=0; i < msg.length;i++){
+
+                      if(msg.charAt(i-1)=="-"){
+                            while(1){
+                            if(msg.charAt(i)!= ':'){
+                            s+= msg.charAt(i); 
+                            }else{
+
+                              break;
+                            }
+
+                            
+                            console.log(s);
+
+
+                          i=i+1;
+                  }
+                  break;
+                }
+              }
+
+
+            if(msg.indexOf(s)){
+                  var d=0;
+                  for(d=0;d<nicknames.length;d++){
+                  if(s == nicknames[d].user){
+
+                                      
+                   
+                   
+                   console.log(s);
+                   data.replace(s, "-");         
+
+                  io.sockets.emit("send-individual",{msg:data , nick:socket.nickname});
+
+                   
+
+
+            }else{
+
+              callback("Error :user is not online! or can't find user");
+            } 
+            }     
+
+          
+          }else{
+                          callback("Error :can't find user ");
+
+          }
+
   });
 });

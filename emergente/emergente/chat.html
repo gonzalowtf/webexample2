@@ -187,7 +187,7 @@
 
 
 <span class ="input-group-btn">
-<input id ="mes2" class = "form-control input-lg" type ="text" placeholder = "message to a user...."></input>
+<input id ="mes2" class = "form-control input-lg" type ="text" placeholder = "username: 'message'"></input>
 
 <button class ="btn btn-lg btn-primary" type ="submit">
 
@@ -209,7 +209,7 @@ Send
 
 
 <span class ="input-group-btn">
-<input id ="mes" class = "form-control input-lg" type ="text" placeholder = "message to all users...."></input>
+<input id ="mes" class = "form-control input-lg" type ="text" placeholder = "message to all users"></input>
 
 <button class ="btn btn-lg btn-primary" type ="submit">
 
@@ -510,7 +510,22 @@ jQuery(function($){
                   if(html.indexOf(s) !=1){
 
                          
+                         socket.emit("individual",'<b><i style="color='+c+'">'+vari.val + "</b></i>=-" +$theM2.val(),function(data){
+                             
+                            bootbox.alert(data);
 
+
+
+
+                         });
+
+                                $theM2.val('');
+
+
+
+
+
+                        
                          console.log("its in it");
 
 
@@ -518,6 +533,7 @@ jQuery(function($){
                   }
 
 
+             
 
 
 
@@ -525,13 +541,26 @@ jQuery(function($){
       });  
 
         
+socket.on('send-individual',function(data){
+        
+        if(data.nick.user==vari.val){
 
+
+        $chatIndividual.append("<br>"+data.msg+"<br>");
+      }
+      else{
+                $chatIndividual.append("<br><span class='visitor'>"+data.msg+"<br></span>");
+
+      }
           
               
       
 
 
         });
+
+
+});
 
 
 
