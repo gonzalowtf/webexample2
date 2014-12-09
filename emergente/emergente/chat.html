@@ -401,7 +401,11 @@ jQuery(function($){
              var $chatIndividual =$('#message');
              var $chatGeneral =$('#message2');
              var $dropdown=$('#dropdown1');
-             var $selected=$('#selected');
+             //var $selected=$('#selected');
+             var $messageForm2=$('#sendmessage2');
+             var $theM2=$('#mes2');
+             var html ="";
+
              
              console.log("llego");
              
@@ -429,7 +433,7 @@ jQuery(function($){
         
 
         socket.on("usernames", function(data){
-            var html ="";
+            html="";
             var dr ="";
             var con=0;
             for(i=0; i<data.length;i++){
@@ -460,7 +464,7 @@ jQuery(function($){
         $messageForm.submit(function(e){
 
       e.preventDefault();
-      socket.emit('send-message','<i style="color:'+c+'">'+vari.val + "</i>:" +$theM.val());
+      socket.emit('send-message','<b><i style="color:'+c+'">'+vari.val + "</b></i>:" +$theM.val());
           $theM.val('');
            });
 
@@ -476,6 +480,48 @@ jQuery(function($){
 
       }
         
+      });
+
+
+      $messageForm2.submit(function(e){
+
+                  e.preventDefault();
+                  var s= "";
+                  var i;
+                  for(i=0; i < $theM2.val().length;i++){
+
+                            if($theM2.val().charAt(i)!= ':'){
+                            s+= $theM2.val().charAt(i); 
+                            }else{
+
+                              break;
+                            }
+
+                            
+                            console.log(s);
+
+
+
+                  }
+
+                    console.log("user:"+s);
+
+
+                  if(html.indexOf(s) !=1){
+
+                         
+
+                         console.log("its in it");
+
+
+
+                  }
+
+
+
+
+
+
       });  
 
         
