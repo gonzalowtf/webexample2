@@ -510,7 +510,7 @@ jQuery(function($){
                   if(html.indexOf(s) !=1){
 
                          
-                         socket.emit("individual",'<b><i style="color='+c+'">'+vari.val + "</b></i>=-" +$theM2.val(),function(data){
+                         socket.emit("individual",'<b><i style="color:'+c+'">'+vari.val + "</b></i>= -" +$theM2.val(),function(data){
                              
                             bootbox.alert(data);
 
@@ -543,12 +543,15 @@ jQuery(function($){
         
 socket.on('send-individual',function(data){
         
+
+        
+        
         if(data.nick.user==vari.val){
 
 
         $chatIndividual.append("<br>"+data.msg+"<br>");
       }
-      else{
+       if(data.whisper==vari.val){
                 $chatIndividual.append("<br><span class='visitor'>"+data.msg+"<br></span>");
 
       }

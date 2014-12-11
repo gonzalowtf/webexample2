@@ -145,12 +145,14 @@ function updatenicknames(){
 
           var msg = data.trim(); //this take care of a posible space at the beggining
           var s="";
+          var notOnline=0;
+
           var i;
                   for(i=0; i < msg.length;i++){
 
                       if(msg.charAt(i-1)=="-"){
                             while(1){
-                            if(msg.charAt(i)!= ':'){
+                            if(msg.charAt(i)!= ':' && i>20){
                             s+= msg.charAt(i); 
                             }else{
 
@@ -177,24 +179,32 @@ function updatenicknames(){
                    
                    
                    console.log(s);
-                   data.replace(s, "-");         
+                   console.log(data);         
+                   data.replace(s, " ");
+                   console.log(data);         
 
-                  io.sockets.emit("send-individual",{msg:data , nick:socket.nickname});
+                  io.sockets.emit("send-individual",{msg:data , nick:socket.nickname,whisper:s});
 
                    
 
 
-            }else{
-
-              callback("Error :user is not online! or can't find user");
-            } 
-            }     
-
+                     }else {
+                              notOnline++;
+                                }     
+           }
           
           }else{
                           callback("Error :can't find user ");
 
           }
+if(notOnline==nicknames.length){
+
+       callback("Error :can't find user or its not online ");
+
+}
+
 
   });
 });
+
+
