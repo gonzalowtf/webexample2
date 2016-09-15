@@ -9,12 +9,16 @@ var express = require("express"),
     io = require("socket.io").listen(server),  //io listen on server where app s running
     nicknames = [];
     
+
+/*
     
 app.configure(function () {
   app.use(express.bodyParser()); 
   app.use(express.methodOverride());
   app.use(app.router); 
 });
+
+*/
 
 //directing to other places of the site
 app.use('/emergente/emergente', express.static(__dirname + '/emergente/emergente'));
@@ -57,7 +61,7 @@ server.listen(port, function(err) {
     
 });
 
-/*var handler = function(req,res){
+var handler = function(req,res){
     console.log(req.url);
 
     if (req.url==="/"){
@@ -67,9 +71,9 @@ server.listen(port, function(err) {
         res.end("a pagina chat");
     }
     
-}*/
+}
 
-/*app.get('/', function(req, res) {
+app.get('/', function(req, res) {
       console.log(req.url);
       if(req.url === '/'){
           res.sendfile(__dirname + '/index.html');      
@@ -79,7 +83,7 @@ server.listen(port, function(err) {
       }
 
   
-});*/
+});
 
 
 

@@ -11,7 +11,9 @@
     "express": "x.x.x",
     "mongodb": "x.x.x",
     "mongoose": "x.x.x",
-    "socket.io": "x.x.x"
+    "socket.io": "x.x.x",
+    "assert": "x.x.x",
+    "ultron": "x.x.x"
   },
   "license": "MIT"
 }

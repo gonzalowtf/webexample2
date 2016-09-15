@@ -86,7 +86,7 @@ function change(val){
          document.getElementById("reg").setAttribute("href", "register.html?y=nothing&val="+val+"&");
          document.getElementById("stor").setAttribute("href", "store.html?y=nothing&val="+val+"&");
          document.getElementById("chat").setAttribute("href", "chat.html?y=nothing&val="+val+"&");
-         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothing&val="+val+"&");
+         document.getElementById("home").setAttribute("href", "https://webexample2-gonzalowtf77.c9users.io/index.html?y=nothing&val="+val+"&");
          document.getElementById("richard").setAttribute("href", "richard.html?y=nothing&val="+val+"&");
          document.getElementById("history").setAttribute("href", "history.html?y=nothing&val="+val+"&");
          document.getElementById("michael").setAttribute("href", "michael.html?y=nothing&val="+val+"&");

@@ -88,7 +88,7 @@ function redireccionar(user,password,email,val) {
     var an = "que";
     console.log(user);
 
-pasarVariables("https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html",'user,status,password,email,val',status,user,password,email,val);
+pasarVariables("https://webexample2-gonzalowtf77.c9users.io/index.html",'user,status,password,email,val',status,user,password,email,val);
 
    
 }

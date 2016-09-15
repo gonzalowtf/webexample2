@@ -74,7 +74,7 @@ console.log(al.val);
 });
 
 
- //       var url = "https://webexample-c9-gonzalowtf77.c9.io/webexample2/emergente/emergente/chat.html?y=nothing&val="+val+"&";
+ //       var url = "https://webexample2-gonzalowtf77.c9users.io/emergente/emergente/chat.html?y=nothing&val="+val+"&";
 
           
 
@@ -111,7 +111,7 @@ function change(val){
          document.getElementById("reg").setAttribute("href", "register.html?y=nothing&val="+val+"&");
          document.getElementById("stor").setAttribute("href", "store.html?y=nothing&val="+val+"&");
          document.getElementById("chat").setAttribute("href", "chat.html?y=nothing&val="+val+"&");
-         document.getElementById("home").setAttribute("href", "https://webexample-c9-gonzalowtf77.c9.io/webexample2/index.html?y=nothing&val="+val+"&");
+         document.getElementById("home").setAttribute("href", "https://webexample2-gonzalowtf77.c9users.io/index.html?y=nothing&val="+val+"&");
 
 
 
