@@ -198,8 +198,8 @@ function mainController($scope, $http) {
   
 
   // Obtenemos todos los datos de la base de datos
-  var string = 'mongodb://gonzalowtf:aereomodelismo12@ds035750.mongolab.com:35750/tshirts';
-  $http.get( "https://api.mongolab.com/api/1/databases/tshirts/collections/tshirts?apiKey=_vLDq9lvUO9ci-RsLIyj5McCzMxnI2uO").success(function(data) {
+  var string = 'mongodb://hutter22:cancer29@ds035750.mlab.com:35750/tshirts';
+  $http.get( "https://api.mlab.com/api/1/databases/tshirts/collections/tshirts?apiKey=lYx2og5q7eaGd9iKMQt3QEZzTyV8Ue2v").success(function(data) {
     $scope.tshirt = data;
     console.log("llego  \n"+data);
   });
