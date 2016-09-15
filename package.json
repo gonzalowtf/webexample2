@@ -1,17 +1,17 @@
 {
-
-    "name": "webexample",
-    "version": "0.1.0",
-    "author": "Gonzalo Jordan",
-    "description": "crear aplicacion android websotre",
-    "private": true,
-    "scripts": {
-        "start": "node ./server.js"
-    },
-    "dependencies" : {
-        "express"       : "3.3.x",
-        "mongoose"      : "3.6.x",
-        "socket.io": "1.2.1"
-    },
-    "license": "MIT"
+  "name": "webexample",
+  "version": "0.1.0",
+  "author": "Gonzalo Jordan",
+  "description": "crear aplicacion android websotre",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "express": "3.3.x",
+    "mongodb": "^2.2.9",
+    "mongoose": "3.6.x",
+    "socket.io": "1.2.1"
+  },
+  "license": "MIT"
 }

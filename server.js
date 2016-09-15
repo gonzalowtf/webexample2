@@ -3,7 +3,8 @@ var express = require("express"),
     http    = require("http"), //m http module
     server  = http.createServer(app),
     port = process.env.PORT || 8000,
-    mongoose = require("mongoose"),
+    MongoClient = require("mongodb").MongoClient,
+    assert = require("assert"),
     ip=process.env.IP,
     io = require("socket.io").listen(server),  //io listen on server where app s running
     nicknames = [];
@@ -85,18 +86,31 @@ server.listen(port, function(err) {
 // Conexión
 
 
+
+var url = 'mongodb://hutter22:cancer29@ds035750.mlab.com:35750/tshirts';
+// Use connect method to connect to the Server 
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
  
+  db.close();
+});
+
+ 
+/*
 
 
-
-mongoose.connect("mongodb://gonzalowtf:aereomodelismo12@ds035750.mongolab.com:35750/tshirts", function(err, res) {
+mongoose.connect("mongodb://hutter:cancer29@ds035750.mlab.com:35750/tshirts", function(err, res) {
   if(err) {
-    console.log('ERROR: connecting to Database. ' + err);
+    console.log('ERROR: connecting to Database. Line 94 ' + err);
   } else {
     console.log('Connected to Database');
   }
 });
 
+
+
+*/
 //--------------------------------------------------------------------------------------- socket
 //for get data into server
 
